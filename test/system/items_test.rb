@@ -14,6 +14,9 @@ class ItemsTest < ApplicationSystemTestCase
     visit items_url
     click_on "New item"
 
+    fill_in "Link", with: @item.link
+    fill_in "Status", with: @item.status
+    fill_in "Title", with: @item.title
     click_on "Create Item"
 
     assert_text "Item was successfully created"
@@ -24,6 +27,9 @@ class ItemsTest < ApplicationSystemTestCase
     visit item_url(@item)
     click_on "Edit this item", match: :first
 
+    fill_in "Link", with: @item.link
+    fill_in "Status", with: @item.status
+    fill_in "Title", with: @item.title
     click_on "Update Item"
 
     assert_text "Item was successfully updated"
